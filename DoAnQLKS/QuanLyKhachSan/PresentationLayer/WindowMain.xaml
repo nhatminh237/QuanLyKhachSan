@@ -1,0 +1,27 @@
+﻿<Window x:Class="QuanLyKhachSan.PresentationLayer.WindowMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKhachSan.PresentationLayer"
+        mc:Ignorable="d"
+        Title="WindowMain" Height="740" Width="890" Loaded="Window_Loaded" ResizeMode="NoResize">
+
+    <Window.Resources>
+
+    </Window.Resources>
+    <Canvas>
+
+        <Label Content="Ngày hôm nay: " FontSize="15" Canvas.Left="470" Canvas.Top="6" Height="50" Width="134"></Label>
+        <DatePicker Name="dptb"  Canvas.Left="636" Canvas.Top="10" Width="238" Height="31" ></DatePicker>
+        <Image Source="Image/imageHotelMain.jpg" Height="578" Width="863" Canvas.Left="10" Canvas.Top="132" ></Image>
+        <Button Name="bt_phong" Click="Bt_phong_Click" Content="Xem danh sách phòng" Height="67" Width="139" Canvas.Left="10" Canvas.Top="65"></Button>
+        <Button x:Name="bt_thanhtoan" Click="Bt_thanhtoan_Click" Content="Thanh toán phòng" Height="67" Width="139" Canvas.Left="154" Canvas.Top="65"/>
+        <Button x:Name="bt_thuephong" Click="Bt_thuephong_Click" Content="Thuê phòng" Height="67" Width="139" Canvas.Left="296" Canvas.Top="65"/>
+        <Button x:Name="bt_baocaothang" Click="Bt_baocaothang_Click" Content="Xem báo cáo tháng" Height="67" Width="139" Canvas.Left="442" Canvas.Top="65"/>
+
+        <Button x:Name="bt_quydinh" Click="Bt_quydinh_Click" Content="Thay đổi quy định" Height="67" Width="139" Canvas.Left="586" Canvas.Top="65"/>
+        <Label Content="Hotline: XXXXXXXX" FontStyle="Italic" Background="LightBlue"   FontSize="10" Width="165" Height="32" Canvas.Left="706" Canvas.Top="677" ></Label>
+        <Button x:Name="bt_chinhsua" Click="Bt_chinhsua_Click" Content="Tra cứu thông tin,&#xD;&#xA; chỉnh sửa" Height="67" Width="139" Canvas.Left="730" Canvas.Top="65"  />
+    </Canvas>
+</Window>

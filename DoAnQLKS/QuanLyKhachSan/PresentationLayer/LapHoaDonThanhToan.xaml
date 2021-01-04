@@ -1,0 +1,38 @@
+﻿<Window x:Class="QuanLyKhachSan.PresentationLayer.LapHoaDonThanhToan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKhachSan.PresentationLayer"
+        mc:Ignorable="d"
+        Title="LapHoaDonThanhToan" Height="700" Width="1000" Loaded="Window_Loaded">
+    <Canvas>
+        <Label FontSize="15" Content="Tên phòng:" Canvas.Left="35.2" Canvas.Top="73.7" Height="35" Width="92"/>
+        <Label FontSize="15" Content="Loại phòng:" Canvas.Left="35.2" Canvas.Top="185.6" Height="34" Width="92"/>
+        <Label FontSize="15" Content="Đơn giá:" Canvas.Left="35.2" Canvas.Top="127.3" Height="35" Width="92"/>
+        <Label FontSize="15" Content="Ghi chú:" Canvas.Left="494.4" Canvas.Top="73.7" Height="35" Width="88"/>
+        <Label FontSize="15" Content="Ngày bắt đầu:" Canvas.Left="494.4" Canvas.Top="188.8" Height="34" Width="104"/>
+        <TextBox x:Name="tb_tenphong" MouseLeave="Tb_tenphong_MouseLeave" TextChanged="Tb_tenphong_TextChanged" Height="26" Width="149" Canvas.Left="158" Canvas.Top="83" />
+        <TextBlock Background="LightGray" x:Name="tb_gia" Height="28" Width="213" Canvas.Left="158" Canvas.Top="134"/>
+        <TextBlock Background="LightGray" x:Name="tb_loaiphong" Height="27" Width="104" Canvas.Left="158" Canvas.Top="194"/>
+        <TextBlock Background="LightGray" x:Name="tb_ghichu" TextWrapping="Wrap"  Height="97" Width="313" Canvas.Left="629" Canvas.Top="65"/>
+        <DatePicker IsEnabled="False" FontSize="15" x:Name="dp_ngaybd" Canvas.Left="628.8" Canvas.Top="188.8" Width="197" Height="32"  />
+        <DataGrid Name="gv_khachhang" Height="186" Width="586" Canvas.Left="10" Canvas.Top="331" ></DataGrid>
+
+        <Label FontSize="15" Content="Ngày thanh toán:" Canvas.Left="629" Canvas.Top="266" Height="34" Width="127"/>
+        <DatePicker FontSize="15" x:Name="dp_ngaythanhtoan" SelectedDateChanged="Dp_ngaythanhtoan_SelectedDateChanged" Canvas.Left="787" Canvas.Top="266" Width="197" Height="32"  />
+        <Label Content="Số ngày thuê: " FontSize="17" Canvas.Left="629" Canvas.Top="331"></Label>
+        <TextBlock Name="tb_songaythue" FontSize="17" Background="LightGray"  Height="32" Width="93" Canvas.Left="787" Canvas.Top="331" ></TextBlock>
+        <TextBlock Name="tb_tienphong" Background="LightGray" Height="30" Width="196" Canvas.Left="787" Canvas.Top="397"></TextBlock>
+        <Label Content="Tổng tiền phòng: " FontSize="17" Canvas.Left="629" Canvas.Top="395"/>
+        <TextBlock x:Name="tb_phuthu" Background="LightGray" Height="30" Width="196" Canvas.Left="787" Canvas.Top="452"/>
+        <Label Content="Tiền phụ thu: " FontSize="17" Canvas.Left="629" Canvas.Top="451"/>
+        <TextBlock x:Name="tb_tongtien" Background="LightGray" Height="30" Width="196" Canvas.Left="787" Canvas.Top="514"/>
+        <Label Content="Tổng tiền: " FontSize="17" Canvas.Left="629" Canvas.Top="514"/>
+        <TextBlock Name="tb_tienchu" FontSize="13" TextWrapping="Wrap" Canvas.Left="735" Canvas.Top="549" Height="49" Width="248"></TextBlock>
+        <Label Content="Danh sách khách hàng" FontSize="17" Background="Gray" Canvas.Left="10" Canvas.Top="276"></Label>
+        <Button Name="bt_dongy" Content="Đồng ý thanh toán" Click="Bt_dongy_Click" FontSize="17" Canvas.Left="629" Canvas.Top="603" Height="53" Width="197"></Button>
+        <Button x:Name="bt_quaylai" Content="Quay lại" Click="Bt_quaylai_Click" FontSize="17" Canvas.Left="223" Canvas.Top="603" Height="53" Width="197"/>
+        <Label Content="Lập hóa đơn thanh toán" FontSize="25" Canvas.Left="367" Canvas.Top="10"/>
+    </Canvas>
+</Window>
