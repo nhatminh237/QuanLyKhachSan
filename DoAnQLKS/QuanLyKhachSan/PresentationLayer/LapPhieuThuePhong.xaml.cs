@@ -21,9 +21,13 @@ namespace QuanLyKhachSan.PresentationLayer
     /// </summary>
     public partial class LapPhieuThuePhong : Window
     {
-        public LapPhieuThuePhong()
+        public PhongDTO phong { get; set; }
+        List<TextBox> listTB = new List<TextBox>();
+        List<ComboBox> listCBB = new List<ComboBox>();
+        public LapPhieuThuePhong(PhongDTO data)
         {
             InitializeComponent();
+            phong = data;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
