@@ -9,6 +9,9 @@ namespace QuanLyKhachSan.DTO
 {
     public class ThamSoDTO
     {
-        
+        public double soluongkhachtoidamoiphong;
+        public double phuthukhachthu3;
+        public double phuthukhachnuocngoai;
+       
     }
 }
