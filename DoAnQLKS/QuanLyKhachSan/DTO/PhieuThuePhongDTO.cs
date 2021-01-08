@@ -8,5 +8,9 @@ namespace QuanLyKhachSan.DTO
 {
     class PhieuThuePhongDTO
     {
+      public string maphieu;
+      public string ngaybd;
+      public double soluongkhach;
+      public string phong;
     }
 }
