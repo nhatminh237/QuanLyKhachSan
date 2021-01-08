@@ -9,7 +9,7 @@ namespace QuanLyKhachSan.DataAccess
 {
     public class HoaDonThanhToanDAO
     {
-        public void insertHoaDon(string mahd, string tenphong, string ngaythanhtoan, int songaythue, double dongia, double phuthu, double thanhtien, string phieuthue)
+        public void insertHoaDon(string mahd,string tenphong,string ngaythanhtoan, int songaythue,double dongia,double phuthu,double thanhtien,string phieuthue)
         {
             SqlProvider.ExecuteQuery("insert into hoadonthanhtoan values('" + mahd + "','" + tenphong + "','" + ngaythanhtoan + "'," + songaythue + "," + dongia + "," + phuthu + "," + thanhtien + ",'" + phieuthue + "')");
         }

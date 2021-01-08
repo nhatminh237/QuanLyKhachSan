@@ -10,7 +10,7 @@ namespace QuanLyKhachSan.DataAccess
 {
     public class SqlProvider
     {
-        public static string connectionString = @"Data Source=DESKTOP-G2R4TVS;Initial Catalog=QLKS;Integrated Security=True";
+        public static string connectionString = @"Data Source=DESKTOP-DUN4BSD\SQLEXPRESS;Initial Catalog=QLKS;Integrated Security=True";
         public static SqlConnection connection = null;
         public static void openConnection()
         {

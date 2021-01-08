@@ -9,7 +9,7 @@ namespace QuanLyKhachSan.DTO
 {
     public class KhachHangDTO
     {
-        public double cmt;
+        public int cmt;
         public string ten;
         public string loai;
         public string diachi;

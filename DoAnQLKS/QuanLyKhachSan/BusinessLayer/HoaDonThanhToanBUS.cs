@@ -39,7 +39,7 @@ namespace QuanLyKhachSan.BusinessLayer
         public DataTable selectMatDoSuDungPhong(int thang, int nam)
         {
             HoaDonThanhToanDAO dao = new HoaDonThanhToanDAO();
-            return dao.selectMatDoSuDungPhong(thang, nam);
+            return dao.selectMatDoSuDungPhong(thang,nam);
         }
     }
 }

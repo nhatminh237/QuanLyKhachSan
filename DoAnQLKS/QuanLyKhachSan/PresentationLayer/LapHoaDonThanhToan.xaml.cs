@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using QuanLyKhachSan.BusinessLayer;
+using QuanLyKhachSan.DataAccess;
 using QuanLyKhachSan.DTO;
 
 
@@ -104,6 +105,7 @@ namespace QuanLyKhachSan.PresentationLayer
                 tb_gia.Text = "";
                 tb_ghichu.Text = "";
             }
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -116,30 +118,29 @@ namespace QuanLyKhachSan.PresentationLayer
                 tb_ghichu.Text = phong.GhiChu;
                 dp_ngaythanhtoan.SelectedDate = DateTime.Now.Date;
             }
+            
         }
 
         private void Dp_ngaythanhtoan_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             TimeSpan time = new TimeSpan();
-            time = Convert.ToDateTime(dp_ngaythanhtoan.Text) - Convert.ToDateTime(dp_ngaybd.Text);
+            time = Convert.ToDateTime( dp_ngaythanhtoan.Text) - Convert.ToDateTime( dp_ngaybd.Text);
             int day = time.Days;
 
-            if (day <= 0 || tb_tenphong.Text == "" || tb_loaiphong.Text == "")
+            if (day <= 0 || tb_tenphong.Text == ""|| tb_loaiphong.Text =="")
             {
                 MessageBox.Show("Chọn ngày thanh toán không hợp lệ hoặc dữ liệu trống, vui lòng chọn lại ngày khác và kiểm tra dữ liệu", "Chọn ngày không hợp lệ", MessageBoxButton.OK);
-                dp_ngaythanhtoan.SelectedDate = DateTime.Now.Date.AddDays(1);
             }
             else
             {
                 tb_songaythue.Text = day.ToString();
                 KhachHangBUS kh = new KhachHangBUS();
-                PhieuThuePhongBUS pt = new PhieuThuePhongBUS();
-                var khachhang = kh.selectKhachHang(pt.selectPhieuThuePhongGanNhat(tb_tenphong.Text).Rows[0].Field<string>(0));
+                var khachhang = kh.selectKhachHang(tb_tenphong.Text);
                 int SoKhachNuocNgoai = 0;
                 int Soluongkhach = 0;
                 foreach (DataRow row in khachhang.Rows)
                 {
-                    if (row.Field<string>(2) == "khach nuoc ngoai")
+                    if(row.Field<string>(2) == "khach nuoc ngoai")
                     {
                         SoKhachNuocNgoai++;
                     }
@@ -150,15 +151,15 @@ namespace QuanLyKhachSan.PresentationLayer
                 tb_tienphong.Text = (double.Parse(tb_gia.Text) * day).ToString();
                 if (SoKhachNuocNgoai > 0 && Soluongkhach >= thamso.Rows[0].Field<int>(0))
                 {
-                    tb_phuthu.Text = ((double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(2) - double.Parse(tb_tienphong.Text)) + double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(1)).ToString();
+                    tb_phuthu.Text = ((double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(2)- double.Parse(tb_tienphong.Text)) + double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(1)).ToString();
                 }
-                if (SoKhachNuocNgoai == 0 && Soluongkhach >= thamso.Rows[0].Field<int>(0))
+                if(SoKhachNuocNgoai == 0 && Soluongkhach >= thamso.Rows[0].Field<int>(0))
                 {
                     tb_phuthu.Text = (double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(1)).ToString();
                 }
                 if (SoKhachNuocNgoai > 0 && Soluongkhach < thamso.Rows[0].Field<int>(0))
                 {
-                    tb_phuthu.Text = ((double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(2) - double.Parse(tb_tienphong.Text))).ToString();
+                    tb_phuthu.Text = ((double.Parse(tb_tienphong.Text) * thamso.Rows[0].Field<double>(2)- double.Parse(tb_tienphong.Text))).ToString();
                 }
                 if (SoKhachNuocNgoai == 0 && Soluongkhach < thamso.Rows[0].Field<int>(0))
                 {
@@ -167,6 +168,7 @@ namespace QuanLyKhachSan.PresentationLayer
                 tb_tongtien.Text = (double.Parse(tb_phuthu.Text) + double.Parse(tb_tienphong.Text)).ToString();
                 tb_tienchu.Text = DocTienBangChu(long.Parse(tb_tongtien.Text), " VNĐ");
             }
+
         }
         private string[] ChuSo = new string[10] { " không", " một", " hai", " ba", " bốn", " năm", " sáu", " bẩy", " tám", " chín" };
         private string[] Tien = new string[6] { "", " nghìn", " triệu", " tỷ", " nghìn tỷ", " triệu tỷ" };
@@ -287,7 +289,6 @@ namespace QuanLyKhachSan.PresentationLayer
             }
             return KetQua;
         }
-
         //---------------------------
 
         private void Bt_quaylai_Click(object sender, RoutedEventArgs e)
@@ -334,10 +335,9 @@ namespace QuanLyKhachSan.PresentationLayer
                             HD = "HD" + (so + 1).ToString();
                         }
                     }
-                    DateTime? date = dp_ngaythanhtoan.SelectedDate;
-                    string month = date.Value.Month.ToString();
-                    string day = date.Value.Day.ToString();
-                    string year = date.Value.Year.ToString();
+                    string day = dp_ngaythanhtoan.Text.Substring(0, 2);
+                    string month = dp_ngaythanhtoan.Text.Substring(3, 2);
+                    string year = dp_ngaythanhtoan.Text.Substring(6, 4);
                     PhieuThuePhongBUS pt = new PhieuThuePhongBUS();
                     var mapt = pt.selectPhieuThuePhongGanNhat(tb_tenphong.Text);
                     bus.insertHoaDon(HD, tb_tenphong.Text, month + "/" + day + "/" + year, int.Parse(tb_songaythue.Text), double.Parse(tb_tienphong.Text), double.Parse(tb_phuthu.Text), double.Parse(tb_tongtien.Text), mapt.Rows[0].Field<string>(0));
@@ -355,7 +355,6 @@ namespace QuanLyKhachSan.PresentationLayer
             {
                 MessageBox.Show("Phòng này đã được khách thanh toán trước dó ! ", "Phòng đã được thanh toán trươc đó", MessageBoxButton.OK);
             }
-            this.Close();
         }
         
     }

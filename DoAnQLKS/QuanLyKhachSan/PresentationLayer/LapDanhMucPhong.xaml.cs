@@ -12,9 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data;
+using QuanLyKhachSan.DataAccess;
 using QuanLyKhachSan.DTO;
 using QuanLyKhachSan.BusinessLayer;
+using System.Data;
 
 
 namespace QuanLyKhachSan.PresentationLayer
@@ -30,13 +31,21 @@ namespace QuanLyKhachSan.PresentationLayer
         {
             InitializeComponent();
         }
+        void Swap()
+        {
+            for (var i = 0; i < listtemp.Count; i++)
+            {
+                
+                ListPhong.Add(listtemp[i]);
+            }
+        }
         void LoadData(DataTable data)
         {
             LbDanhMucPhong.Items.Clear();
             listtemp.Clear();
             ListPhong.Clear();
             dp_day.SelectedDate = DateTime.Now.Date;
-            foreach (DataRow row in data.Rows)
+            foreach(DataRow row in data.Rows)
             {
                 ListBoxItem item = new ListBoxItem();
                 item.Height = 100;
@@ -54,7 +63,7 @@ namespace QuanLyKhachSan.PresentationLayer
                 listtemp.Add(phong);
                 if (row.Field<string>(4) == "da thue")
                 {
-                    item.Background = Brushes.Red;
+                    item.Background=  Brushes.Red;
                 }
                 else
                 {
@@ -65,14 +74,7 @@ namespace QuanLyKhachSan.PresentationLayer
             }
             Swap();
         }
-        void Swap()
-        {
-            for (var i = 0; i < listtemp.Count; i++)
-            {
 
-                ListPhong.Add(listtemp[i]);
-            }
-        }
         private void Tb_timkiem_TextChanged(object sender, TextChangedEventArgs e)
         {
             PhongBUS bus = new PhongBUS();
@@ -96,7 +98,7 @@ namespace QuanLyKhachSan.PresentationLayer
             PhongBUS phong = new PhongBUS();
             phong.updateTTPhongAsChuaThue();
             //--
-            pn_menu.Visibility = Visibility.Hidden;
+            pn_menu.Visibility = Visibility.Hidden ;
             PhongBUS bus = new PhongBUS();
             var data = bus.SelectAllPhong();
             cb_sort.SelectedIndex = 0;
@@ -109,10 +111,12 @@ namespace QuanLyKhachSan.PresentationLayer
             PhongBUS bus = new PhongBUS();
             var data = bus.SelectAllPhong();
             LoadData(data);
+
         }
 
         private void ComboBoxItem_Selected_1(object sender, RoutedEventArgs e)
         {
+
             PhongBUS bus = new PhongBUS();
             var data = bus.SortByPhongChuaThue();
             LoadData(data);
@@ -169,9 +173,9 @@ namespace QuanLyKhachSan.PresentationLayer
             //
             bool checkThanhToan = false;
             HoaDonThanhToanBUS hd = new HoaDonThanhToanBUS();
-            foreach (DataRow row in hd.KiemTraThanhToan().Rows)
+            foreach(DataRow row in hd.KiemTraThanhToan().Rows)
             {
-                if (row.Field<string>(0) == ListPhong[index].TenPhong)
+                if(row.Field<string>(0) == ListPhong[index].TenPhong)
                 {
                     checkThanhToan = true;
                 }

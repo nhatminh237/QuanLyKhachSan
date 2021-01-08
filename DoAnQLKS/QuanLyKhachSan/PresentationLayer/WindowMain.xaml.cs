@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using QuanLyKhachSan.BusinessLayer;
+using QuanLyKhachSan.DataAccess;
 using QuanLyKhachSan.DTO;
 
 namespace QuanLyKhachSan.PresentationLayer
@@ -34,6 +35,7 @@ namespace QuanLyKhachSan.PresentationLayer
             phong.updateTTPhongAsChuaThue();
             //--
             dptb.SelectedDate = DateTime.Now.Date;
+           
         }
 
         private void Bt_phong_Click(object sender, RoutedEventArgs e)
@@ -70,8 +72,7 @@ namespace QuanLyKhachSan.PresentationLayer
 
         private void Bt_baocaothang_Click(object sender, RoutedEventArgs e)
         {
-
-
+            
             var screen = new LapBaoCaoThang();
             screen.ShowDialog();
         }
@@ -83,10 +84,9 @@ namespace QuanLyKhachSan.PresentationLayer
         }
         private void Bt_chinhsua_Click(object sender, RoutedEventArgs e)
         {
-
+               
             var screen = new TraCuuThayDoiThongTinPhong();
             screen.ShowDialog();
-
 
         }
     }

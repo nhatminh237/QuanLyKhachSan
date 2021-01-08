@@ -17,7 +17,7 @@
         <TextBlock Background="LightGray" Name="tb_gia" Height="28" Width="213" Canvas.Left="158" Canvas.Top="134"></TextBlock>
         <TextBlock Background="LightGray" Name="tb_loaiphong" Height="27" Width="104" Canvas.Left="158" Canvas.Top="194"></TextBlock>
         <TextBlock Background="LightGray" Name="tb_ghichu" TextWrapping="Wrap"  Height="97" Width="313" Canvas.Left="629" Canvas.Top="65"></TextBlock>
-        <DatePicker FontSize="15" Name="dp_ngaybd" SelectedDateChanged="Dp_ngaybd_SelectedDateChanged" Canvas.Left="629" Canvas.Top="189" Width="197" Height="32"  ></DatePicker>
+        <DatePicker FontSize="15" Name="dp_ngaybd" Canvas.Left="629" Canvas.Top="189" Width="197" Height="32"  ></DatePicker>
 
         <StackPanel Orientation="Vertical" Name="pn_khachhang" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Canvas.Left="38" Canvas.Top="296" Width="850" Height="230">
             <DockPanel Height="30" Width="853" HorizontalAlignment="Left">
