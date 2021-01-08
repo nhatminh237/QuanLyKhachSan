@@ -29,6 +29,6 @@
             </DockPanel>
         </StackPanel>
         <Button Name="bt_quaylai" Content="Quay lại" FontSize="17" Height="52" Width="200" Canvas.Left="267" Canvas.Top="575" Click="Bt_quaylai_Click" ></Button>
-        <Button Name="bt_dongy" Content="Đồng ý" FontSize="17" Height="52" Width="200" Canvas.Left="629" Canvas.Top="575" Click="Bt_dongy_Click" ></Button>
+        <Button Name="bt_dongy" Content="Đồng ý" FontSize="17" Height="52" Width="200" Canvas.Left="628" Canvas.Top="575" Click="Bt_dongy_Click" ></Button>
     </Canvas>
 </Window>
