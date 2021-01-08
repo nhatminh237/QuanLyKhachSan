@@ -98,8 +98,13 @@ GO
 insert into phong 
 values('P101','A',300000,N'Phòng loại A đơn giá 300000/ngay','chua thue'),
 ('P102','B',200000,N'Phòng loại B đơn giá 200000/ngay','chua thue'),
-('P103','C',400000,N'Phòng loại C đơn giá 400000/ngay','chua thue')
+('P104','A',300000,N'Phòng loại A đơn giá 300000/ngay','chua thue'),
+('P105','B',200000,N'Phòng loại B đơn giá 400000/ngay','chua thue'),
+('P106','C',400000,N'Phòng loại C đơn giá 400000/ngay','chua thue'),
+('P107','A',300000,N'Phòng loại A đơn giá 300000/ngay','chua thue'),
+('P108','B',200000,N'Phòng loại B đơn giá 200000/ngay','chua thue'),
+('P109','C',400000,N'Phòng loại C đơn giá 400000/ngay','chua thue'),
+('P110','A',300000,N'Phòng loại A đơn giá 300000/ngay','chua thue')
 
 insert into THAMSO
-
 values (3,0.25,1.5)
