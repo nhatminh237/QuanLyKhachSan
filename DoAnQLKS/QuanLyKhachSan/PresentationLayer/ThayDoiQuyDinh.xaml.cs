@@ -31,8 +31,8 @@ namespace QuanLyKhachSan.PresentationLayer
 
         private void Item_A_Selected(object sender, RoutedEventArgs e)
         {
-            //PhongBUS bus = new PhongBUS();
-            //tb_dongia.Text = bus.selectDonGiaTheoLoaiPhong("A").Rows[0].Field<double>(0).ToString();
+            PhongBUS bus = new PhongBUS();
+            tb_dongia.Text = bus.selectDonGiaTheoLoaiPhong("A").Rows[0].Field<double>(0).ToString();
         }
 
         private void Item_B_Selected(object sender, RoutedEventArgs e)
@@ -175,11 +175,11 @@ namespace QuanLyKhachSan.PresentationLayer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //ThamSoBUS ts = new ThamSoBUS();
-            //var thamso = ts.SelectThamSo();
-            ////tb_soluongkhach.Text = thamso.Rows[0].Field<int>(0).ToString();
-            ////tb_HeSoPTKT3.Text = thamso.Rows[0].Field<double>(1).ToString();
-            //tb_HePTKNN.Text = thamso.Rows[0].Field<double>(2).ToString();
+            ThamSoBUS ts = new ThamSoBUS();
+            var thamso = ts.SelectThamSo();
+            tb_soluongkhach.Text = thamso.Rows[0].Field<int>(0).ToString();
+            tb_HeSoPTKT3.Text = thamso.Rows[0].Field<double>(1).ToString();
+            tb_HePTKNN.Text = thamso.Rows[0].Field<double>(2).ToString();
         }
 
         private void Tb_dongia_PreviewTextInput(object sender, TextCompositionEventArgs e)
